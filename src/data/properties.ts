@@ -29,6 +29,7 @@ export const florence: Property = {
       alt: "Interior luminoso de Casa Florence en Nerja",
     },
   ],
+  smoobuId: 2897896,
   airbnbUrl: "https://es.airbnb.com/rooms/1492273417273197297",
   whatsappMessage:
     "Hola, me gustaría reservar Casa Florence en Nerja. ¿Qué disponibilidad tenéis? [web]",
@@ -56,6 +57,7 @@ export const isolde: Property = {
       alt: "Casa Isolde en Nerja",
     },
   ],
+  smoobuId: 2897901,
   airbnbUrl: "https://es.airbnb.com/rooms/1438473117240724145",
   whatsappMessage:
     "Hola, me gustaría reservar Casa Isolde en Nerja. ¿Qué disponibilidad tenéis? [web]",

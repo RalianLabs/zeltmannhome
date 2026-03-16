@@ -16,8 +16,9 @@ export interface Property {
   bathrooms: number | null;
   amenities: Amenity[];
   images: PropertyImage[];
+  smoobuId: number;
   airbnbUrl: string;
-  airbnbEmbedUrl?: string;
+  bookingUrl?: string;
   whatsappMessage: string;
   coordinates: { lat: number; lng: number } | null;
   host: string | null;
@@ -38,6 +39,16 @@ export interface Experience {
   title: string;
   description: string;
   icon: string;
+}
+
+export interface Review {
+  id: string;
+  text: string;
+  author: string;
+  platform: "airbnb" | "booking" | "google";
+  rating: number;
+  date: string;
+  propertyId: string;
 }
 
 export interface NerjaSection {

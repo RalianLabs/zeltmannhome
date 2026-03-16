@@ -1,6 +1,7 @@
 export const SITE = {
   name: "ZeltmannHome",
   tagline: "Alquiler vacacional en Nerja",
+  smoobuAccountId: 1387461,
   whatsappNumber: "34609549664",
   whatsappUrl: "https://wa.me/34609549664",
   defaultWhatsappMessage:
