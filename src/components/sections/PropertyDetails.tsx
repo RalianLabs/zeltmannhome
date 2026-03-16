@@ -161,29 +161,37 @@ export default function PropertyDetails({ property }: PropertyDetailsProps) {
                 </a>
               </div>
 
-              {/* Review */}
-              {property.reviewHighlight && (
-                <div className="bg-white rounded-2xl p-6 shadow-sm">
-                  <div className="flex gap-0.5 mb-3">
-                    {[...Array(property.reviewHighlight.rating)].map((_, i) => (
-                      <svg
-                        key={i}
-                        className="w-4 h-4 text-gold"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                      </svg>
-                    ))}
-                  </div>
-                  <p className="text-sm text-navy italic leading-relaxed mb-2">
-                    &ldquo;{property.reviewHighlight.text}&rdquo;
-                  </p>
-                  <p className="text-xs text-muted">
-                    — {property.reviewHighlight.author}
-                  </p>
+              {/* Reviews link */}
+              <a
+                href={`${property.airbnbUrl}#reviews`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow group"
+              >
+                <div className="flex items-center gap-3 mb-2">
+                  <svg className="w-5 h-5 text-[#FF5A5F]" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.87-3.13-7-7-7z" />
+                  </svg>
+                  <span className="text-sm font-semibold text-navy">Reseñas en Airbnb</span>
                 </div>
-              )}
+                <p className="text-xs text-muted leading-relaxed">
+                  Consulta las opiniones verificadas de huéspedes anteriores
+                </p>
+                <span className="mt-3 inline-flex items-center text-xs font-medium text-navy/60 group-hover:text-navy transition-colors">
+                  Ver reseñas
+                  <svg className="w-3 h-3 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </span>
+              </a>
+
+              {/* Best price nudge */}
+              <div className="bg-sand/10 rounded-xl px-5 py-4 text-center">
+                <p className="text-xs text-navy/70 leading-relaxed">
+                  <strong className="text-gold">Mejor precio por WhatsApp</strong> — reserva
+                  directa y ahorra frente a plataformas
+                </p>
+              </div>
 
               {/* Host */}
               {property.host && (

@@ -31,14 +31,9 @@ export const florence: Property = {
   ],
   airbnbUrl: "https://es.airbnb.com/rooms/1492273417273197297",
   whatsappMessage:
-    "Hola, me gustaría reservar Casa Florence en Nerja. ¿Qué disponibilidad tenéis?",
-  coordinates: { lat: 36.7437, lng: -3.8638 },
+    "Hola, me gustaría reservar Casa Florence en Nerja. ¿Qué disponibilidad tenéis? [web]",
+  coordinates: { lat: 36.7515, lng: -3.8777 },
   host: "Mike",
-  reviewHighlight: {
-    text: "Todo genial, Mike muy agradable y atento. El apartamento está en una ubicación perfecta, a pocos minutos andando de todo. Muy limpio y con todo lo necesario. Repetiremos seguro.",
-    author: "Huésped verificado",
-    rating: 5,
-  },
 };
 
 export const isolde: Property = {
@@ -63,8 +58,8 @@ export const isolde: Property = {
   ],
   airbnbUrl: "https://es.airbnb.com/rooms/1438473117240724145",
   whatsappMessage:
-    "Hola, me gustaría reservar Casa Isolde en Nerja. ¿Qué disponibilidad tenéis?",
-  coordinates: null,
+    "Hola, me gustaría reservar Casa Isolde en Nerja. ¿Qué disponibilidad tenéis? [web]",
+  coordinates: { lat: 36.7515, lng: -3.8777 },
   host: null,
 };
 
