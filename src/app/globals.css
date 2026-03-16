@@ -9,9 +9,89 @@ html {
 body {
   background: #F7F5F2;
   color: #0B2A44;
+  font-weight: 300;
+  line-height: 1.7;
 }
 
 ::selection {
   background: #DCC8A1;
   color: #0B2A44;
+}
+
+/* Premium label style */
+.label {
+  @apply text-xs font-semibold uppercase tracking-label text-sand;
+}
+
+/* Hero overlay gradient */
+.hero-gradient {
+  background: linear-gradient(
+    to top,
+    rgba(11, 42, 68, 0.7) 0%,
+    rgba(11, 42, 68, 0.3) 40%,
+    rgba(11, 42, 68, 0.05) 70%,
+    transparent 100%
+  );
+}
+
+/* Smooth section transitions */
+.section-padding {
+  @apply py-section md:py-section-lg;
+}
+
+/* Lightbox overlay */
+.lightbox-overlay {
+  background: rgba(11, 42, 68, 0.95);
+}
+
+/* Nav transparent → solid transition */
+.nav-transparent {
+  background: transparent;
+  border-color: transparent;
+}
+
+.nav-solid {
+  background: rgba(247, 245, 242, 0.92);
+  backdrop-filter: blur(12px);
+  border-color: rgba(220, 200, 161, 0.2);
+}
+
+/* Photo gallery hover */
+.gallery-item {
+  @apply overflow-hidden rounded-lg cursor-pointer;
+}
+
+.gallery-item img {
+  @apply transition-transform duration-700 ease-out;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+/* Scroll reveal animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* FAQ accordion */
+.faq-answer {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s ease;
+}
+
+.faq-answer.open {
+  grid-template-rows: 1fr;
+}
+
+.faq-answer > div {
+  overflow: hidden;
 }

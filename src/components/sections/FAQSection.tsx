@@ -3,22 +3,23 @@ import { faqs } from "@/data/faqs";
 
 export default function FAQSection() {
   return (
-    <section id="faq" className="py-16 md:py-20 bg-white">
-      <div className="max-w-3xl mx-auto px-4">
+    <section id="faq" className="section-padding bg-cream">
+      <div className="max-w-3xl mx-auto px-6">
         <SectionHeading
           title="Preguntas frecuentes"
           subtitle="Todo lo que necesitas saber antes de reservar"
+          label="FAQ"
         />
         <div className="space-y-3">
           {faqs.map((faq, i) => (
             <details
               key={i}
-              className="group bg-bg rounded-xl overflow-hidden"
+              className="group bg-white rounded-xl overflow-hidden"
             >
-              <summary className="flex items-center justify-between cursor-pointer px-6 py-4 font-semibold text-navy text-sm hover:bg-sand/10 transition-colors list-none [&::-webkit-details-marker]:hidden">
+              <summary className="flex items-center justify-between cursor-pointer px-6 py-5 font-semibold text-navy text-sm hover:bg-sand/5 transition-colors list-none [&::-webkit-details-marker]:hidden">
                 {faq.question}
                 <svg
-                  className="w-5 h-5 text-muted shrink-0 ml-4 transition-transform group-open:rotate-180"
+                  className="w-5 h-5 text-muted shrink-0 ml-4 transition-transform duration-300 group-open:rotate-180"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -31,7 +32,7 @@ export default function FAQSection() {
                   />
                 </svg>
               </summary>
-              <div className="px-6 pb-4 text-muted text-sm leading-relaxed">
+              <div className="px-6 pb-5 text-muted text-sm leading-loose">
                 {faq.answer}
               </div>
             </details>

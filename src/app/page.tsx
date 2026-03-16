@@ -1,14 +1,9 @@
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
-import WhatsAppButton from "@/components/layout/WhatsAppButton";
-import ScrollReveal from "@/components/ui/ScrollReveal";
-import HeroSection from "@/components/sections/HeroSection";
-import PropertiesSection from "@/components/sections/PropertiesSection";
-import ComparisonSection from "@/components/sections/ComparisonSection";
-import ExperienceSection from "@/components/sections/ExperienceSection";
-import FAQSection from "@/components/sections/FAQSection";
-import MapWrapper from "@/components/sections/MapWrapper";
+import HomeHero from "@/components/sections/HomeHero";
+import PropertyPreview from "@/components/sections/PropertyPreview";
+import NerjaTeaser from "@/components/sections/NerjaTeaser";
+import TrustSection from "@/components/sections/TrustSection";
 import ContactSection from "@/components/sections/ContactSection";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 import { generateVacationRentalSchema } from "@/lib/schema";
 import { florence, isolde } from "@/data/properties";
 
@@ -17,28 +12,17 @@ export default function Home() {
 
   return (
     <>
-      <Header />
-      <main>
-        <HeroSection />
-        <ScrollReveal>
-          <PropertiesSection />
-        </ScrollReveal>
-        <ScrollReveal>
-          <ComparisonSection />
-        </ScrollReveal>
-        <ScrollReveal>
-          <ExperienceSection />
-        </ScrollReveal>
-        <ScrollReveal>
-          <FAQSection />
-        </ScrollReveal>
-        <ScrollReveal>
-          <MapWrapper />
-        </ScrollReveal>
-        <ContactSection />
-      </main>
-      <Footer />
-      <WhatsAppButton />
+      <HomeHero />
+      <ScrollReveal>
+        <PropertyPreview />
+      </ScrollReveal>
+      <ScrollReveal>
+        <NerjaTeaser />
+      </ScrollReveal>
+      <ScrollReveal>
+        <TrustSection />
+      </ScrollReveal>
+      <ContactSection />
 
       {schemas.map((schema, i) => (
         <script

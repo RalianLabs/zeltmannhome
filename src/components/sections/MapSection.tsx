@@ -51,15 +51,16 @@ export default function MapSection() {
   }, []);
 
   return (
-    <section id="ubicacion" className="py-16 md:py-20">
-      <div className="max-w-6xl mx-auto px-4">
+    <section id="ubicacion" className="section-padding">
+      <div className="max-w-wide mx-auto px-6">
         <SectionHeading
           title="Ubicación"
           subtitle="En el corazón de Nerja, a pocos pasos de todo"
+          label="Mapa"
         />
         <div
           ref={mapRef}
-          className="w-full h-80 md:h-96 rounded-xl overflow-hidden shadow-sm"
+          className="w-full h-80 md:h-[28rem] rounded-2xl overflow-hidden shadow-sm"
         />
       </div>
     </section>
