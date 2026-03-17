@@ -100,14 +100,30 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
+        {/* Legal row */}
+        <div className="mt-10 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-xs text-white/30">
             © {new Date().getFullYear()} {SITE.name}. Todos los derechos reservados.
           </p>
-          <p className="text-xs text-white/30">
+          <div className="flex items-center gap-6">
+            <Link
+              href="/legal/terminos"
+              className="text-xs text-white/40 hover:text-white/80 transition-colors"
+            >
+              Términos y Condiciones
+            </Link>
+            <Link
+              href="/legal/privacidad"
+              className="text-xs text-white/40 hover:text-white/80 transition-colors"
+            >
+              Política de Privacidad
+            </Link>
+          </div>
+          <p className="text-xs text-white/30 hidden md:block">
             Nerja, Costa del Sol — Málaga, España
           </p>
         </div>
+
       </div>
     </footer>
   );
