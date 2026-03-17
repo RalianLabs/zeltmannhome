@@ -26,27 +26,27 @@ export const florence: Property = {
   images: [
     {
       src: "/images/properties/florence/hero.webp",
-      alt: "Interior luminoso de Casa Florence en Nerja",
+      alt: "Salón luminoso con sofá verde y cocina americana en Casa Florence, Nerja",
     },
     {
       src: "/images/properties/florence/salon.webp",
-      alt: "Salón acogedor con sofá y luz natural en Casa Florence",
+      alt: "Salón con sofá, TV y entrada con arco en Casa Florence",
     },
     {
       src: "/images/properties/florence/cocina.webp",
-      alt: "Cocina totalmente equipada en Casa Florence",
+      alt: "Cocina totalmente equipada con encimera de granito en Casa Florence",
     },
     {
       src: "/images/properties/florence/dormitorio.webp",
-      alt: "Dormitorio principal con ropa de cama premium en Casa Florence",
+      alt: "Dormitorio principal con cama doble y toallas de bienvenida en Casa Florence",
     },
     {
       src: "/images/properties/florence/bano.webp",
-      alt: "Baño moderno y limpio en Casa Florence",
+      alt: "Baño moderno con mármol y toallero en Casa Florence",
     },
     {
       src: "/images/properties/florence/terraza.webp",
-      alt: "Terraza con vistas en Casa Florence, Nerja",
+      alt: "Fachada con arco de ladrillo, entrada de Casa Florence en Nerja",
     },
   ],
   smoobuId: 2897896,
@@ -67,8 +67,8 @@ export const isolde: Property = {
   longDescription:
     "Casa Isolde es nuestro segundo hogar en Nerja, pensado para quienes buscan tranquilidad sin renunciar a estar cerca de todo. Un espacio cómodo y funcional donde sentirte como en casa mientras disfrutas del mejor clima de Europa y la magia de la Costa del Sol oriental.",
   capacity: 4,
-  bedrooms: 1,
-  beds: 1,
+  bedrooms: 2,
+  beds: 3,
   bathrooms: 1,
   amenities: [
     { name: "Cocina equipada", icon: "kitchen" },
@@ -83,27 +83,27 @@ export const isolde: Property = {
   images: [
     {
       src: "/images/properties/isolde/hero.webp",
-      alt: "Interior de Casa Isolde en Nerja",
+      alt: "Salón-comedor con cocina abierta y flores en Casa Isolde, Nerja",
     },
     {
       src: "/images/properties/isolde/salon.webp",
-      alt: "Salón luminoso y confortable en Casa Isolde",
+      alt: "Salón con sofá azul, mesa de comedor y cocina al fondo en Casa Isolde",
     },
     {
       src: "/images/properties/isolde/cocina.webp",
-      alt: "Cocina totalmente equipada en Casa Isolde",
+      alt: "Cocina amplia con encimera de granito negro en Casa Isolde",
     },
     {
       src: "/images/properties/isolde/dormitorio.webp",
-      alt: "Dormitorio acogedor con ropa de cama premium en Casa Isolde",
+      alt: "Dormitorio principal con cama doble y TV en Casa Isolde",
     },
     {
       src: "/images/properties/isolde/bano.webp",
-      alt: "Baño moderno en Casa Isolde",
+      alt: "Baño moderno con ducha y mármol en Casa Isolde",
     },
     {
       src: "/images/properties/isolde/terraza.webp",
-      alt: "Terraza con vistas en Casa Isolde, Nerja",
+      alt: "Segundo dormitorio con dos camas individuales en Casa Isolde",
     },
   ],
   smoobuId: 2897901,
