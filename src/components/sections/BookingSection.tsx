@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Property } from "@/types";
 import { SITE } from "@/data/site";
 
@@ -9,9 +9,45 @@ interface BookingSectionProps {
 }
 
 export default function BookingSection({ property }: BookingSectionProps) {
+  const containerRef = useRef<HTMLDivElement>(null);
   const [loading, setLoading] = useState(true);
-  const iframeSrc = `https://login.smoobu.com/es/booking-tool/iframe/${SITE.smoobuAccountId}/${property.smoobuId}`;
   const whatsappHref = `${SITE.whatsappUrl}?text=${encodeURIComponent(property.whatsappMessage)}`;
+  const containerId = `smoobu-booking-${property.id}`;
+
+  useEffect(() => {
+    if (!containerRef.current) return;
+
+    // Clear any previous widget content
+    containerRef.current.innerHTML = "";
+
+    const script = document.createElement("script");
+    script.src =
+      "https://login.smoobu.com/js/Settings/BookingToolIframe.js";
+    script.async = true;
+    script.onload = () => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const BT = (window as any).BookingToolIframe;
+      if (BT) {
+        BT.initialize({
+          url: `https://login.smoobu.com/es/booking-tool/iframe/${SITE.smoobuAccountId}/${property.smoobuId}?newTabAfterSearch=true`,
+          baseUrl: "https://login.smoobu.com",
+          target: `#${containerId}`,
+        });
+        // Give widget time to render
+        setTimeout(() => setLoading(false), 1500);
+      }
+    };
+    document.body.appendChild(script);
+
+    return () => {
+      // Cleanup script on unmount
+      try {
+        document.body.removeChild(script);
+      } catch {
+        // Script may already be removed
+      }
+    };
+  }, [property.smoobuId, property.id, containerId]);
 
   return (
     <section id="reserva" className="section-padding">
@@ -33,9 +69,9 @@ export default function BookingSection({ property }: BookingSectionProps) {
           </div>
         </div>
 
-        {/* Smoobu iframe */}
+        {/* Smoobu JS Widget */}
         <div className="max-w-3xl mx-auto mb-8">
-          <div className="bg-white rounded-2xl shadow-sm border border-sand/20 overflow-hidden relative">
+          <div className="bg-white rounded-2xl shadow-sm border border-sand/20 overflow-hidden relative min-h-[500px]">
             {/* Loading state */}
             {loading && (
               <div className="absolute inset-0 flex items-center justify-center bg-cream/80 z-10">
@@ -45,15 +81,10 @@ export default function BookingSection({ property }: BookingSectionProps) {
                 </div>
               </div>
             )}
-            <iframe
-              src={iframeSrc}
-              title={`Calendario de reservas - ${property.name}`}
-              className="w-full border-0"
-              style={{ height: "600px", minHeight: "500px" }}
-              loading="lazy"
-              allow="payment"
-              sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox"
-              onLoad={() => setLoading(false)}
+            <div
+              id={containerId}
+              ref={containerRef}
+              className="w-full"
             />
           </div>
         </div>

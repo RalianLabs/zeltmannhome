@@ -29,6 +29,10 @@ export default function Header() {
   }, [pathname]);
 
   const isActive = (href: string) => pathname === href;
+  const isPropertyPage = pathname === "/florence" || pathname === "/isolde";
+  const reservarHref = isPropertyPage
+    ? "#reserva"
+    : "https://wa.me/34609549664?text=Hola%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n%20sobre%20vuestros%20apartamentos%20en%20Nerja.";
 
   return (
     <header
@@ -68,9 +72,8 @@ export default function Header() {
             </Link>
           ))}
           <Link
-            href="https://wa.me/34609549664?text=Hola%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n%20sobre%20vuestros%20apartamentos%20en%20Nerja."
-            target="_blank"
-            rel="noopener noreferrer"
+            href={reservarHref}
+            {...(!isPropertyPage && { target: "_blank", rel: "noopener noreferrer" })}
             className={`text-sm font-semibold px-5 py-2 rounded-full transition-all duration-300 ${
               scrolled
                 ? "bg-sand text-navy hover:bg-sand-dark"
@@ -134,13 +137,12 @@ export default function Header() {
             </Link>
           ))}
           <Link
-            href="https://wa.me/34609549664?text=Hola%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n%20sobre%20vuestros%20apartamentos%20en%20Nerja."
-            target="_blank"
-            rel="noopener noreferrer"
+            href={reservarHref}
+            {...(!isPropertyPage && { target: "_blank", rel: "noopener noreferrer" })}
             className="block text-sm font-semibold text-white bg-sand px-5 py-2.5 rounded-full text-center hover:bg-sand-dark transition-colors"
             onClick={() => setMenuOpen(false)}
           >
-            Reservar por WhatsApp
+            {isPropertyPage ? "Reservar ahora" : "Reservar por WhatsApp"}
           </Link>
         </nav>
       </div>
