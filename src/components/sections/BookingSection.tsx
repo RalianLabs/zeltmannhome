@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { Property } from "@/types";
 import { SITE } from "@/data/site";
 
@@ -8,6 +9,7 @@ interface BookingSectionProps {
 }
 
 export default function BookingSection({ property }: BookingSectionProps) {
+  const [loading, setLoading] = useState(true);
   const iframeSrc = `https://login.smoobu.com/es/booking-tool/iframe/${SITE.smoobuAccountId}/${property.smoobuId}`;
   const whatsappHref = `${SITE.whatsappUrl}?text=${encodeURIComponent(property.whatsappMessage)}`;
 
@@ -33,7 +35,16 @@ export default function BookingSection({ property }: BookingSectionProps) {
 
         {/* Smoobu iframe */}
         <div className="max-w-3xl mx-auto mb-8">
-          <div className="bg-white rounded-2xl shadow-sm border border-sand/20 overflow-hidden">
+          <div className="bg-white rounded-2xl shadow-sm border border-sand/20 overflow-hidden relative">
+            {/* Loading state */}
+            {loading && (
+              <div className="absolute inset-0 flex items-center justify-center bg-cream/80 z-10">
+                <div className="text-center">
+                  <div className="w-8 h-8 border-2 border-sand border-t-transparent rounded-full animate-spin mx-auto mb-3" />
+                  <p className="text-sm text-muted">Cargando calendario...</p>
+                </div>
+              </div>
+            )}
             <iframe
               src={iframeSrc}
               title={`Calendario de reservas - ${property.name}`}
@@ -41,6 +52,8 @@ export default function BookingSection({ property }: BookingSectionProps) {
               style={{ height: "600px", minHeight: "500px" }}
               loading="lazy"
               allow="payment"
+              sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox"
+              onLoad={() => setLoading(false)}
             />
           </div>
         </div>

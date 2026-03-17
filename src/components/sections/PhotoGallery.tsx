@@ -10,6 +10,8 @@ interface PhotoGalleryProps {
   title?: string;
 }
 
+const MAX_VISIBLE = 5;
+
 export default function PhotoGallery({
   images,
   title = "Galería",
@@ -17,6 +19,9 @@ export default function PhotoGallery({
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   if (images.length === 0) return null;
+
+  const visibleImages = images.slice(0, MAX_VISIBLE);
+  const remainingCount = images.length - MAX_VISIBLE;
 
   return (
     <>
@@ -30,7 +35,7 @@ export default function PhotoGallery({
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
-            {images.map((image, i) => (
+            {visibleImages.map((image, i) => (
               <div
                 key={i}
                 className={`gallery-item relative cursor-pointer ${
@@ -49,6 +54,14 @@ export default function PhotoGallery({
                       : "(max-width: 768px) 50vw, 33vw"
                   }
                 />
+                {/* Badge on last visible image if there are more */}
+                {i === visibleImages.length - 1 && remainingCount > 0 && (
+                  <div className="absolute inset-0 bg-black/40 rounded-lg flex items-center justify-center transition-opacity hover:bg-black/50">
+                    <span className="text-white font-semibold text-sm md:text-base">
+                      Ver {images.length} fotos
+                    </span>
+                  </div>
+                )}
               </div>
             ))}
           </div>

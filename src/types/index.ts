@@ -57,4 +57,19 @@ export interface NerjaSection {
   subtitle: string;
   description: string;
   image: PropertyImage;
+  details?: string[];
+  tips?: string;
+}
+
+export interface GuideSection {
+  id: string;
+  title: string;
+  icon: string;
+  items: GuideItem[];
+}
+
+export interface GuideItem {
+  title: string;
+  content: string;
+  link?: string;
 }

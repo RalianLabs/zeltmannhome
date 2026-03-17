@@ -9,6 +9,7 @@ const navLinks = [
   { href: "/florence", label: "Casa Florence" },
   { href: "/isolde", label: "Casa Isolde" },
   { href: "/nerja", label: "Descubre Nerja" },
+  { href: "/guia", label: "Guía" },
 ];
 
 export default function Header() {

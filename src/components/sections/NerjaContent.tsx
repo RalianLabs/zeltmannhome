@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { nerjaIntro, nerjaSections } from "@/data/nerja";
+import { nerjaIntro, nerjaSections, datosPracticos } from "@/data/nerja";
 
 export default function NerjaContent() {
   return (
@@ -27,7 +27,7 @@ export default function NerjaContent() {
         >
           <div className="max-w-wide mx-auto px-6">
             <div
-              className={`grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center ${
+              className={`grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start ${
                 i % 2 !== 0 ? "lg:flex-row-reverse" : ""
               }`}
             >
@@ -52,14 +52,69 @@ export default function NerjaContent() {
                 <h2 className="font-serif text-3xl md:text-4xl font-bold text-navy mb-6">
                   {section.title}
                 </h2>
-                <p className="text-muted text-base leading-loose">
+                <p className="text-muted text-base leading-loose mb-6">
                   {section.description}
                 </p>
+
+                {/* Detail list */}
+                {section.details && section.details.length > 0 && (
+                  <ul className="space-y-3 mb-6">
+                    {section.details.map((detail, j) => (
+                      <li key={j} className="flex gap-3 text-sm text-navy/80">
+                        <span className="text-sand mt-0.5 shrink-0">&#9679;</span>
+                        <span>{detail}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+
+                {/* Tip callout */}
+                {section.tips && (
+                  <div className="bg-sand/10 border border-sand/20 rounded-xl px-5 py-4">
+                    <p className="text-sm text-navy/80">
+                      <span className="font-semibold text-navy">Consejo:</span>{" "}
+                      {section.tips}
+                    </p>
+                  </div>
+                )}
               </div>
             </div>
           </div>
         </section>
       ))}
+
+      {/* Datos prácticos */}
+      <section className="section-padding bg-cream">
+        <div className="max-w-wide mx-auto px-6">
+          <div className="text-center mb-12">
+            <p className="label mb-3">{datosPracticos.subtitle}</p>
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-navy">
+              {datosPracticos.title}
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {datosPracticos.sections.map((section) => (
+              <div
+                key={section.title}
+                className="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-sand/10"
+              >
+                <h3 className="font-serif text-xl font-bold text-navy mb-4">
+                  {section.title}
+                </h3>
+                <ul className="space-y-3">
+                  {section.items.map((item, j) => (
+                    <li key={j} className="flex gap-3 text-sm text-navy/80">
+                      <span className="text-sand mt-0.5 shrink-0">&#9679;</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </>
   );
 }
