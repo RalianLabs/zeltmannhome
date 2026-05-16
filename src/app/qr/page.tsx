@@ -1,11 +1,4 @@
-import type { Metadata } from "next";
-import Image from "next/image";
-
-export const metadata: Metadata = {
-  title: "QR Code — ZeltmannHome Nerja",
-  description: "Escanea el código QR para visitar la web de ZeltmannHome en Nerja.",
-  robots: { index: false },
-};
+"use client";
 
 export default function QRPage() {
   return (
@@ -22,15 +15,14 @@ export default function QRPage() {
           </div>
 
           {/* QR */}
-          <div className="w-56 h-56 relative">
-            <Image
-              src="/qr-zeltmannhome.svg"
-              alt="Código QR que lleva a la web de ZeltmannHome Nerja"
-              fill
-              className="object-contain"
-              priority
-            />
-          </div>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/qr-zeltmannhome.svg"
+            alt="Código QR ZeltmannHome Nerja"
+            width={224}
+            height={224}
+            className="w-56 h-56"
+          />
 
           {/* Llamada a la acción */}
           <div className="text-center space-y-1">
@@ -45,7 +37,7 @@ export default function QRPage() {
           {/* Separador decorativo */}
           <div className="w-12 h-px bg-sand/40" />
 
-          {/* Flags / idiomas */}
+          {/* Flags */}
           <div className="flex gap-3 text-lg">
             <span title="Español">🇪🇸</span>
             <span title="English">🇬🇧</span>
