@@ -61,15 +61,6 @@ export default function QRPage() {
         >
           Imprimir / Guardar PDF
         </button>
-
-        {/* Descarga SVG */}
-        <a
-          href="/qr-zeltmannhome.svg"
-          download="qr-zeltmannhome.svg"
-          className="print:hidden text-xs text-muted underline underline-offset-2 hover:text-navy transition-colors"
-        >
-          Descargar SVG (alta resolución)
-        </a>
       </div>
     </main>
   );
